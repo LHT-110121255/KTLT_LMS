@@ -207,3 +207,4 @@ void mang_con_tang_dan(float *arr, int n)
 		KT_mang_con(arr, i, dem);
 	printf("so mang con tang dan trong mang = %d", dem);
 }
+
