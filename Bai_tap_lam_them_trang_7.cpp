@@ -26,26 +26,30 @@ void menu(float *arr, int n)
 	while (KT)
 	{
 		printf("\n 1. Nhap mang va xuat mang");
-		printf("\n 1. tim so duong nho nhat");
-		printf("\n 2. sap xep mang so chan tang dan o dau va so le giam dan o cuoi");
-		printf("\n 3. dem so mang con trong mang");
-		printf("\n 4. lam sach cua so");
-		printf("\n 5. thoat");
-		printf("\n 0. moi nhap yeu cau ? ");
+		printf("\n 2. tim so duong nho nhat");
+		printf("\n 3. sap xep mang so chan tang dan o dau va so le giam dan o cuoi");
+		printf("\n 4. dem so mang con trong mang");
+		printf("\n 5. lam sach cua so");
+		printf("\n 0. thoat");
+		printf("\n  moi nhap yeu cau ? ");
 	int lc; scanf("%d", &lc);
 		switch (lc)
 		{
 			case 1:
 				inArray(arr, n);
+				printf("\n");
 				break;
 			case 2: 
 				tim_so_duong(arr, n);
+				printf("\n");
 				break;
 			case 3: 
 				sap_xep(arr, n, 1, n);
+				printf("\n");
 				break;
 			case 4: 
 				mang_con_tang_dan(arr, n);
+				printf("\n");
 				break;
 			case 5:
 				system("cls");
@@ -55,6 +59,7 @@ void menu(float *arr, int n)
 				break;
 			 default:
 			 	printf("nhap sai !! chon lai !!");
+				printf("\n");
 			 	break;
 		}
 	}
@@ -91,14 +96,13 @@ void tim_so_duong(float *arr, int n)
 			brr[j] = arr[i];
 			j++;	
 		}
-	outArray(brr, j);
-//	float min = brr[1];
-//	for(i = 2; i <= j; i++)
-//	{
-//		if(min > brr[i])
-//			min = brr[i];
-//	}
-//	printf("so duong nho nhat trong mang la %.3f", min);
+	float min = brr[1];
+	for(i = 2; i < j; i++)
+	{
+		if(min > brr[i])
+			min = brr[i];
+	}
+	printf("so duong nho nhat trong mang la %.3f", min);
 }
 void quickSort_T(float *arr, int left, int right) {
     int i, j , x;
