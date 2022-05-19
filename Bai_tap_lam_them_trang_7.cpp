@@ -8,6 +8,7 @@ void tim_so_duong(float *arr, int n);
 void quickSort_T(float *arr, int left, int right);
 void quickSort_G(float *arr, int left, int right);
 void sap_xep(float *arr, int n, int left, int right);
+void sap_xep_xen_ke(float *arr, int n, int left, int right);
 void mang_con_tang_dan(float *arr, int n);
 int KT_mang_con(float *arr, int i, int &dem);
 void menu(float *arr, int n);
@@ -29,7 +30,8 @@ void menu(float *arr, int n)
 		printf("\n 2. tim so duong nho nhat");
 		printf("\n 3. sap xep mang so chan tang dan o dau va so le giam dan o cuoi");
 		printf("\n 4. dem so mang con trong mang");
-		printf("\n 5. lam sach cua so");
+		printf("\n 5. sap xep mang so chan tang dan o dau va so le giam dan o cuoi");
+		printf("\n 6. lam sach cua so");
 		printf("\n 0. thoat");
 		printf("\n  moi nhap yeu cau ? ");
 	int lc; scanf("%d", &lc);
@@ -52,6 +54,9 @@ void menu(float *arr, int n)
 				printf("\n");
 				break;
 			case 5:
+				sap_xep_xen_ke(arr, n, 1, n);
+				break;
+			case 6:
 				system("cls");
 				break;
 			case 0:
@@ -162,6 +167,28 @@ void sap_xep(float *arr, int n, int left, int right)
 	}
 	quickSort_G(brr, 1, k-1);
 	outArray(brr, k-1);
+}
+void sap_xep_xen_ke(float *arr, int n, int left, int right)
+{
+	int i, j = 1 , k = 1 ;
+	float brr[100], crr[100];
+	for(i = 1; i <= n; i++) {
+		if (int(arr[i])%2 == 0)
+		{
+			crr[j] = i;
+			j++;	
+		}	
+	}
+	quickSort_T(arr, crr[1], crr[j-1]);
+	for(i = 1; i <= n; i++) {
+		if (int(arr[i])%2 != 0)
+		{
+			brr[k] = i;
+			k++;	
+		}	
+	}
+	quickSort_G(arr, brr[1], brr[k-1]);
+	outArray(arr, n);
 }
 int KT_mang_con(float *arr, int i, int &dem)
 {
