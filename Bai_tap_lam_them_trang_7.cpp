@@ -1,4 +1,5 @@
 #include <stdio.h>
+#include <windows.h>
 
 void inArray(float *arr, int n);
 void outArray(float *arr, int n);
@@ -28,7 +29,8 @@ void menu(float *arr, int n)
 		printf("\n 1. tim so duong nho nhat");
 		printf("\n 2. sap xep mang so chan tang dan o dau va so le giam dan o cuoi");
 		printf("\n 3. dem so mang con trong mang");
-		printf("\n 4. thoat");
+		printf("\n 4. lam sach cua so");
+		printf("\n 5. thoat");
 		printf("\n 0. moi nhap yeu cau ? ");
 	int lc; scanf("%d", &lc);
 		switch (lc)
@@ -44,6 +46,9 @@ void menu(float *arr, int n)
 				break;
 			case 4: 
 				mang_con_tang_dan(arr, n);
+				break;
+			case 5:
+				system("cls");
 				break;
 			case 0:
 				KT = false;
